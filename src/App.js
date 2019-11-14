@@ -4,6 +4,7 @@ import './App.scss';
 import Trending from './components/Trending';
 import Search from './components/Search';
 import WhoToFollow from './components/WhoToFollow';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Search />
         <Trending />
         <WhoToFollow />
+        <Footer />
       </div>
     </div>
   );
