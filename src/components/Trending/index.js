@@ -45,7 +45,7 @@ function Trending({ trending, fetchDataTrendingMore }) {
 }
 
 Trending.propTypes = {
-  data: PropTypes.shape({
+  trending: PropTypes.shape({
     title: PropTypes.string,
     items: PropTypes.arrayOf(
       PropTypes.shape({
@@ -56,7 +56,7 @@ Trending.propTypes = {
     ).isRequired,
     limit: PropTypes.number.isRequired
   }).isRequired,
-  showMoreClick: PropTypes.func.isRequired
+  fetchDataTrendingMore: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {

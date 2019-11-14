@@ -74,6 +74,10 @@ $url: 'https://images.unsplash.com/photo-1572491929821-e7964a44096a?ixlib=rb-1.2
 	background-position: center;
 }
 
+.App {
+  display: flex;
+}
+
 .right-siderbar {
   font-family: $font;
   width: 32.5%;
