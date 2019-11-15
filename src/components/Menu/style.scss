@@ -1,0 +1,75 @@
+$primary-color: rgba(29, 161, 242, 1.00);
+$bg-hover: rgba(29, 161, 242, 0.1);
+$trend-hover: rgba(170, 184, 194, 0.1);
+$font: "system-ui", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+$border-image: 14px;
+
+.menu {
+  margin-left: 45px;
+  padding: 0 20px;
+  &-logo {
+    width: 49px;
+    height: 49px;
+    margin: 2px 0 2px 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    a {
+      color: $primary-color;
+    };
+  };
+  &-logo:hover {
+    background-color: $bg-hover;
+  };
+  &-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    &-item {
+      text-decoration: none;
+      color: rgb(20, 23, 26);
+      font-weight: 600;
+      font-size: 19px;
+      padding: 4px 0;
+      &-content {
+        height: 26px;
+        padding: 10px;
+        display: inline-block;
+        border-radius: 22px;
+        transition: all .3s;
+        .menu-list-item-title {
+          margin: 0 15px 0 20px;
+          line-height: 1.3125;
+        };
+      };
+    };
+    &-item:nth-child(1) {
+      color: $primary-color;
+    }
+    &-item:hover .menu-list-item-content {
+      color: $primary-color;
+      background-color: $bg-hover;
+      cursor: pointer;
+    };
+  };
+  &-btn {
+    padding: 16px 21px;
+    text-align: center;
+    margin: 5px 30px 5px 0;
+    border-radius: 30px;
+    background-color: $primary-color;
+    transition: all .3s;
+    a {
+      color: #eee;
+      font-size: 15px;
+      text-decoration: none;
+      font-weight: 700;
+    };
+  };
+  .btn:hover {
+    background-color: rgb(26, 145, 218);
+    cursor: pointer;
+  }
+}
