@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Menu from './components/Menu';
 import HomeBar from './components/HomeBar';
 import PostForm from './components/PostForm';
+import TimeLine from './components/TimeLine';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <div className="content">
         <HomeBar />
         <PostForm />
+        <TimeLine />
       </div>
       <div className="right-siderbar">
         <Search />

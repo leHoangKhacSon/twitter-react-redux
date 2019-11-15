@@ -1,0 +1,214 @@
+
+$primary-color: rgba(29, 161, 242, 1.00);
+$bg-hover: rgba(29, 161, 242, 0.1);
+$trend-hover: rgba(170, 184, 194, 0.1);
+$font: "system-ui", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+$border-image: 14px;
+$url: 'https://images.unsplash.com/photo-1572491929821-e7964a44096a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=468&q=80';
+
+@mixin box-overlay ($width, $height) {
+	border-radius: 50%;
+	width: $width;
+	height: $height;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: all .3s;
+}
+
+@mixin avatar($width, $height, $url) {
+	width: $width;
+	height: $height;
+	border-radius: 50%;
+	background-image: url($url);
+	background-size: cover;
+	background-position: center;
+}
+
+.timeline {
+  margin-bottom: 20px;
+  &-item {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 15px 0 15px;
+    transition: all .3s;
+    &-avatar {
+      width: 49px;
+      margin: 0 5px;
+      .avatar-img {
+        margin: auto;
+        position: relative;
+        transition: all .3s;
+        @include avatar(47px, 47px, $url);
+        &-hover {
+          @include box-overlay(47px, 47px);
+        };
+        // @import '../helpers/post-author-info.scss';
+      };
+      .avatar-img:hover .avatar-img-hover {
+        background-color: $bg-hover;
+        cursor: pointer;
+      };
+      .avatar-img:hover .post-author-info {
+        display: block;
+        top: 50px;
+        left: -50px;
+      }
+    };
+    &-content {
+      flex-grow: 1;
+      &-header {
+        display: flex;
+        .post-author {
+          text-decoration: none;
+          position: relative;
+          transition: all .3s;
+          &-name {
+            font-weight: bold;
+            font-size: 15px;
+            color: rgb(20, 23, 26);
+          };
+          &-name:hover {
+            text-decoration: underline;
+          };
+          &-trend {
+            color: rgb(101, 119, 134);
+          };  
+          // @import '../../helpers/post-author-info.scss';
+        };
+        .post-author:hover .post-author-info {
+          display: block;
+        }
+        .post-time {
+          color: rgb(101, 119, 134);
+          text-decoration: none;
+          margin-left: 15px;
+          flex-grow: 1;
+        };  
+        .option-handler {
+          .option {
+            display: block !important;
+          };
+        }
+        .dropdown-btn { 
+          height: 27px;
+          width: 27px;
+          border-radius: 50%;  
+          text-align: center;    
+          position: relative;
+          button {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            border: none;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+          } 
+          button:focus +.option {
+            display: block !important;
+          }
+          &-icon {
+            font-size: 15px;
+            width: 15px;
+            position: relative;
+            transition: all .3s;
+            &-overlay {
+              @include box-overlay(27px, 27px);
+            };
+          };
+          .option {
+            list-style: none;
+            position: absolute;
+            top: -10px;
+            right: 0px; 
+            width: 170px;
+            box-shadow: 1px 1px  2px 1px #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            display: none;
+            &-item {
+              padding: 15px;
+              display: flex;
+              align-items: center;
+              transition: all .3s;
+              &-icon {
+                margin-right: 10px;
+              };
+            };
+            &-item:hover {
+              background-color: $bg-hover;
+              cursor: pointer;
+            };
+          }
+        };
+      };
+      .dropdown-btn:hover .dropdown-btn-icon {
+        color: $primary-color;
+        cursor: pointer;
+      };
+      .dropdown-btn:hover .dropdown-btn-icon-overlay {
+        background-color: $bg-hover;
+        cursor: pointer;
+      };
+      &-main {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        .description {
+          width: 100%;
+          margin-bottom: 15px;
+        };
+        .sub-description {
+          height: 285px;
+          width: 100%;
+          background-image: url($url);
+          background-size: cover;
+          background-position: center;
+          border-radius: $border-image;
+        };
+      };
+      &-footer {
+        display: flex;
+        margin-right: 60px;
+        margin-bottom: 15px;
+        justify-content: space-between;
+        .social {
+          color: rgb(101, 119, 134);
+          &-icon {
+            position: relative;
+            transition: all .3s;
+            &-hover {
+              @include box-overlay(35px, 35px);
+            };
+          };
+          &-view {
+            margin-left: 5px;
+          };
+        };
+        .social:hover .social-icon-hover {
+          background-color: $bg-hover;
+          cursor: pointer;
+        };
+        .social:nth-child(1):hover,
+        .social:nth-child(4):hover {
+          color: $primary-color;
+          cursor: pointer;
+        };
+        .social:nth-child(2):hover {
+          color: rgb(23, 191, 99);
+          cursor: pointer;
+        };
+        .social:nth-child(3):hover {
+          color: rgb(224, 36, 94);
+          cursor: pointer;
+        }
+      };
+    };
+  };
+  &-item:hover {
+    background-color: rgb(245, 248, 250);
+  };
+};

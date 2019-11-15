@@ -6,6 +6,7 @@ import whoToFollow from './whoToFollow';
 import menu from './menu';
 import homeBar from './homeBar';
 import postForm from './postForm';
+import timeLine from './timeLine';
 
 const Reducer = combineReducers({
   trending, 
@@ -13,7 +14,8 @@ const Reducer = combineReducers({
   whoToFollow,
   menu,
   homeBar,
-  postForm
+  postForm,
+  timeLine
 });
 
 export default Reducer;

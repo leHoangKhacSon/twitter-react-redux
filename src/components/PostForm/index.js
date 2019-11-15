@@ -55,7 +55,10 @@ function PostForm({ postForm, onEnterValue }) {
 }
 
 PostForm.propTypes = {
-
+  PostForm: PropTypes.shape({
+    isActive: PropTypes.bool
+  }),
+  onEnterValue: PropTypes.func
 }
 
 const mapStateToProps = state => {
