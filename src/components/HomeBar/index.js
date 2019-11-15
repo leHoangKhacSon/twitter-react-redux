@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
-
 function HomeBar({ homeBar }) {
   const { homebarName, homebarIcon } = homeBar;
   return (

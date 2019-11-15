@@ -1,79 +1,86 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { connect } from 'react-redux';
 
-import './style.scss';
 import * as timeLineActions from '../../actions/TimeLine';
+import InfoCard from '../../helpers/InfoCard';
 
-function TimeLine({ timeLine, onLike, onDislike }) {
+function TimeLine({ timeLine, onLike, onDislike, showInfoCard, hideInfoCard }) {
   return (
-    <div class="timeline">
-      { timeLine.map(item => (
-        <div class="timeline-item">
-        <div class="timeline-item-avatar">
-          <div class="avatar-img">
-            <div class="avatar-img-hover"></div>
+    <div className="timeline">
+      { timeLine.map((item, index) => (
+        <div className="timeline-item" key={index}>
+          <div className="timeline-item-avatar">
+            <div 
+            className="avatar-img" 
+            onMouseEnter={() => showInfoCard(item)} 
+            onMouseLeave={() => hideInfoCard(item)}>
+              <div className="avatar-img-hover"></div>
+              { item.infoCardShow && <InfoCard /> }
+            </div>
           </div>
-        </div>
-        <div class="timeline-item-content">
-          <div class="timeline-item-content-header">
-            <a href="#" class="post-author">
-              <strong class="post-author-name">
-                {item.name}
-              </strong>
-              <i class="post-author-tick fas fa-crown"></i>
-              <span class="post-author-trend">
-                {item.username}
-              </span>
-            </a>
-            <a href="" class="post-time">
-              {item.time}
-            </a>
-            <div id="option" class="dropdown-btn"> 
-              <i class="dropdown-btn-icon fas fa-caret-down">
-                <div class="dropdown-btn-icon-overlay"></div>
+          <div className="timeline-item-content">
+            <div className="timeline-item-content-header">
+              <a 
+              href="/" 
+              className="post-author" 
+              onMouseEnter={() => showInfoCard(item)}
+              onMouseLeave={() => hideInfoCard(item)}>
+                <strong className="post-author-name">
+                  {item.name}
+                </strong>
+                <i className="post-author-tick fas fa-crown"></i>
+                <span className="post-author-trend">
+                  {item.username}
+                </span>
+                {/* <InfoCard /> */}
+              </a>
+              <a href="/" className="post-time">
+                {item.time}
+              </a>
+              <div id="option" className="dropdown-btn"> 
+                <i className="dropdown-btn-icon fas fa-caret-down">
+                  <div className="dropdown-btn-icon-overlay"></div>
+                </i>
+                <button></button>
+              </div>
+            </div>
+            <div className="timeline-item-content-main">
+              <div className="description">
+                {item.contentText}
+              </div>
+              <div className="sub-description">
+
+              </div>
+            </div>
+            <div className="timeline-item-content-footer">
+            <div className="social">
+              <i className="social-icon far fa-comment">
+                <div className="social-icon-hover"></div>
               </i>
-              <button></button>
+              <span className="social-view">{item.comment}</span>
+            </div>
+            <div className="social">
+              <i className="social-icon fas fa-retweet">
+                <div className="social-icon-hover"></div>
+              </i>
+              <span className="social-view">{item.reTweet}</span>
+            </div>
+            <div className="social">
+              <i className="social-icon far fa-heart">
+                <div className="social-icon-hover"></div>
+              </i>
+              <span className="social-view">{item.like}</span>
+            </div>
+            <div className="social">
+              <i className="social-icon fas fa-external-link-alt">
+                <div className="social-icon-hover"></div>
+              </i>
             </div>
           </div>
-          <div class="timeline-item-content-main">
-            <div class="description">
-              {item.contentText}
-            </div>
-            <div class="sub-description">
-
-            </div>
-          </div>
-          <div class="timeline-item-content-footer">
-          <div class="social">
-            <i class="social-icon far fa-comment">
-              <div class="social-icon-hover"></div>
-            </i>
-            <span class="social-view">{item.comment}</span>
-          </div>
-          <div class="social">
-            <i class="social-icon fas fa-retweet">
-              <div class="social-icon-hover"></div>
-            </i>
-            <span class="social-view">{item.reTweet}</span>
-          </div>
-          <div class="social">
-            <i class="social-icon far fa-heart">
-              <div class="social-icon-hover"></div>
-            </i>
-            <span class="social-view">{item.like}</span>
-          </div>
-          <div class="social">
-            <i class="social-icon fas fa-external-link-alt">
-              <div class="social-icon-hover"></div>
-            </i>
           </div>
         </div>
-        </div>
-      </div>
       ))}
-
     </div>
   )
 }
@@ -96,7 +103,9 @@ TimeLine.propTypes = {
     })
   ),
   onLike: PropTypes.func,
-  onDislike: PropTypes.func
+  onDislike: PropTypes.func,
+  showInfoCard: PropTypes.func,
+  hideInfoCard: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -112,6 +121,12 @@ const mapDispatchToProps = (dispatch, props) => {
     },
     onDisLike: idPost => {
       dispatch(timeLineActions.onDislike(idPost))
+    },
+    showInfoCard: idPost => {
+      dispatch(timeLineActions.showInfoCard(idPost))
+    },
+    hideInfoCard: idPost => {
+      dispatch(timeLineActions.hideInfoCard(idPost))
     }
   }
 }

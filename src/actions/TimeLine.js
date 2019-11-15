@@ -23,3 +23,21 @@ export const onDislike = idPost => {
     }
   }
 }; 
+
+export const showInfoCard = item => {
+  return {
+    type: timeLineTypes.SHOW_INFO_CARD,
+    payload: {
+      item
+    }
+  }
+};
+
+export const hideInfoCard = item => {
+  return {
+    type: timeLineTypes.HIDE_INFO_CARD,
+    payload: {
+      item
+    }
+  }
+};

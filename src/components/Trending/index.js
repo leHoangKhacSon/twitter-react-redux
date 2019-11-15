@@ -3,7 +3,6 @@ import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
 import * as trendingActions from '../../actions/Trending';
 
 function Trending({ trending, fetchDataTrendingMore }) {
@@ -36,7 +35,7 @@ function Trending({ trending, fetchDataTrendingMore }) {
       <div className="trend-more" 
       onClick={fetchDataTrendingMore}
       >
-        <a className="trend-more-text">
+        <a href="/" className="trend-more-text">
           Show more
         </a>
       </div>

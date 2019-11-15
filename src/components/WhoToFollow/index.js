@@ -3,10 +3,10 @@ import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
 import * as whoToFollowActions from '../../actions/WhoToFollow';
+import InfoCard from '../../helpers/InfoCard';
 
-function WhoToFollow({ whoToFollow, fetchDataFollowMore }) {
+function WhoToFollow({ whoToFollow, fetchDataFollowMore, showInfoCard, hideInfoCard }) {
   const { title, items, limit } = whoToFollow;
   return (
     <div className="follow">
@@ -15,18 +15,24 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore }) {
           {title}
         </p>
       </div>
-      {items.slice(0, limit).map(({ avatarUrl, name, username, tick }) => (
+      {items.slice(0, limit).map(item => (
         <div className="follow-item" key={uuid()}>
-          <div className="follow-item-avatar">
+          <div 
+          className="follow-item-avatar" 
+          onMouseEnter={() => showInfoCard(item)}
+          onMouseLeave={() => hideInfoCard(item)}>
             <div className="follow-item-avatar-hover">
             </div>
+            {item.isShowCard && <InfoCard />}
           </div>
-          <a href="#" className="follow-item-info">
+
+
+          <a href="/" className="follow-item-info">
             <p className="follow-item-info-name">
-              {name}
+              {item.name}
             </p>
             <p className="follow-item-info-mail">
-              {username}
+              {item.username}
             </p>
           </a>
           <div className="follow-item-btn">
@@ -38,7 +44,7 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore }) {
       ))}
 
       <div className="follow-more">
-        <a className="follow-more-text" onClick={fetchDataFollowMore}>
+        <a href="/" className="follow-more-text" onClick={fetchDataFollowMore}>
           Show more
         </a>
       </div>
@@ -59,7 +65,9 @@ WhoToFollow.propTypes = {
     ),
     limit: PropTypes.number
   }),
-  fetchDataFollowMore: PropTypes.func
+  fetchDataFollowMore: PropTypes.func,
+  showInfoCard: PropTypes.func,
+  hideInfoCard: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -72,6 +80,12 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     fetchDataFollowMore: () => {
       dispatch(whoToFollowActions.fetchDataFollowMore())
+    },
+    showInfoCard: item => {
+      dispatch(whoToFollowActions.showInfoCard(item))
+    },
+    hideInfoCard: item => {
+      dispatch(whoToFollowActions.hideInfoCard(item))
     }
   };
 };

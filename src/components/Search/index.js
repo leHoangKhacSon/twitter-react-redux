@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
 import * as searchActions from '../../actions/Search';
 
 function Search({ isShow, onFocusForm, onLeaveForm }) {
-  console.log(isShow);
   return (
     <div className="search">
       <div className="search-form">

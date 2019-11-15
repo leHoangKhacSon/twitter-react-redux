@@ -100,3 +100,13 @@ $url: 'https://images.unsplash.com/photo-1572491929821-e7964a44096a?ixlib=rb-1.2
   font-family: $font;
   width: 32.5%;
 }
+
+@import './components/Menu/style.scss';
+@import './components/HomeBar/style.scss';
+@import './components/PostForm/style.scss';
+@import './components/TimeLine/style.scss';
+@import './components/Search/style.scss';
+@import './components/Trending/style.scss';
+@import './components/WhoToFollow/style.scss';
+@import './components/Footer/style.scss';
+@import './helpers/InfoCard/style.scss';

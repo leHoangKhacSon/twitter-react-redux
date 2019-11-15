@@ -2,20 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
-
 function Menu({ menu }) {
   const { menuLogo, menuItems, menuButton } = menu;
   return (
     <div className="menu">
       <div className="menu-logo">
-        <a href="#">
+        <a href="/">
           <i className={menuLogo}></i>
         </a>
       </div>
       <div className="menu-list">
         {menuItems.map((item, index) => (
-          <a href="#" className="menu-list-item" key={index}>
+          <a href="/" className="menu-list-item" key={index}>
             <div className="menu-list-item-content">
               <i className={item.itemIcon}></i>
               <span className="menu-list-item-title">
@@ -25,7 +23,7 @@ function Menu({ menu }) {
           </a>
         ))}
       <div className="menu-btn">
-        <a href="#">
+        <a href="/">
           {menuButton}
         </a>
       </div>

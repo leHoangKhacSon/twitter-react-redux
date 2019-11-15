@@ -13,7 +13,9 @@ const inititalState = [
     comment: 222,
     reTweet: 111,
     like: 600,
-    isLike: false
+    isLike: false,
+    infoCardShow: false,
+    optionShow: false
   },
   {
     idPost: 2,
@@ -27,7 +29,9 @@ const inititalState = [
     comment: 222,
     reTweet: 111,
     like: 600,
-    isLike: false
+    isLike: false,
+    infoCardShow: false,
+    optionShow: false
   },
   {
     idPost: 3,
@@ -41,7 +45,9 @@ const inititalState = [
     comment: 222,
     reTweet: 111,
     like: 600,
-    isLike: false
+    isLike: false,
+    infoCardShow: false,
+    optionShow: false
   },
   {
     idPost: 4,
@@ -55,7 +61,9 @@ const inititalState = [
     comment: 222,
     reTweet: 111,
     like: 600,
-    isLike: false
+    isLike: false,
+    infoCardShow: false,
+    optionShow: false
   },
   {
     idPost: 5,
@@ -69,7 +77,9 @@ const inititalState = [
     comment: 222,
     reTweet: 111,
     like: 600,
-    isLike: false
+    isLike: false,
+    infoCardShow: false,
+    optionShow: false
   },
   {
     idPost: 6,
@@ -83,19 +93,14 @@ const inititalState = [
     comment: 222,
     reTweet: 111,
     like: 600,
-    isLike: false
+    isLike: false,
+    infoCardShow: false,
+    optionShow: false
   }
 ];
 
-const fetchIndex = (id, state) => {
-  let index;
-  for(let i = 0; i < state.length; i++) {
-    if(state[i].idPost === id) {
-      index = i;
-      break;
-    }
-  return index;
-}
+const fetchIndex = (item, state) => {
+  return state.indexOf(item)
 }
 
 const timeLine = (state = inititalState, action) => {
@@ -127,6 +132,32 @@ const timeLine = (state = inititalState, action) => {
           isLike: true
         },
         ...state.slice(indexLike + 1)
+      ]
+    }
+    case timeLineTypes.SHOW_INFO_CARD: {
+      const { item } = action.payload;
+      const indexShow = state.indexOf(item);
+      // const indexShow = fetchIndex(item, state);
+      console.log(state);
+      return [
+        ...state.slice(0, indexShow),
+        {
+          ...item,
+          infoCardShow: true
+        },
+        ...state.slice(indexShow + 1)
+      ]
+    }
+    case timeLineTypes.HIDE_INFO_CARD: {
+      const { item } = action.payload;
+      const indexHide = fetchIndex(item, state);
+      return [
+        ...state.slice(0, indexHide),
+        {
+          ...item,
+          infoCardShow: false
+        },
+        ...state.slice(indexHide + 1)
       ]
     }
     default:

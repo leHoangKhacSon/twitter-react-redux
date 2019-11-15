@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
 import * as postFormActions from '../../actions/PostForm';
 
 function PostForm({ postForm, onEnterValue }) {

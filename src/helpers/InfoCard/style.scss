@@ -1,0 +1,81 @@
+.info-card {
+  position: absolute;
+  width: 300px;
+  height: 295px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  top: 0;
+  right: -100%;
+  transform: translate(85%, 5%);
+  border-radius: 15px;
+  // display: none;
+  transition: all .3s;
+  z-index: 10;
+  &-header {
+    display: flex;
+    .information {
+      flex-grow: 1;
+      margin-bottom: 15px;
+      &-avatar {
+        width: 57px;
+        height: 57px;
+        border-radius: 50%;
+        background-image: url($url);
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 5px;
+      };
+      &-name {
+        &-text {
+          font-weight: bold;
+          font-size: 15px;
+          color: #000;
+        };
+        &-icon {
+          color: $primary-color;
+        };
+      };
+      &-mail {
+        color:#888;
+        font-size: 15px;
+      };
+    };
+    .follow-btn {
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      height: 37px;
+      padding: 9px 15px 0 15px;
+      border-radius: 30px;
+      box-sizing: border-box;
+      display: block;
+    };
+  };
+  &-main {
+    .describle {
+      color: #000;
+      margin-bottom: 10px;
+    };
+    .follow {
+      margin-left: 0;
+      &-view {
+        color: #000;
+        font-weight: 600;
+        margin-right: 5px;
+      };
+      &-text {
+        color: #888;
+      };
+    };
+    .follower {
+      &-view {
+        color: #000;
+        font-weight: 600;
+        margin-right: 5px;
+      };
+      &-text {
+        color: #888;
+      };
+    };
+  };
+};
