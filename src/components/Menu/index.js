@@ -10,14 +10,14 @@ function Menu({ menu }) {
     <div className="menu">
       <div className="menu-logo">
         <a href="#">
-          <i class={menuLogo}></i>
+          <i className={menuLogo}></i>
         </a>
       </div>
       <div className="menu-list">
         {menuItems.map((item, index) => (
-          <a href="#" className="menu-list-item">
+          <a href="#" className="menu-list-item" key={index}>
             <div className="menu-list-item-content">
-              <i class={item.itemIcon}></i>
+              <i className={item.itemIcon}></i>
               <span className="menu-list-item-title">
                 {item.itemName}
               </span>

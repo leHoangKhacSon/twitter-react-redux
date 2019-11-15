@@ -7,12 +7,12 @@ import './style.scss';
 function HomeBar({ homeBar }) {
   const { homebarName, homebarIcon } = homeBar;
   return (
-  <div class="home-bar">
-    <p class="home-bar-text">
+  <div className="home-bar">
+    <p className="home-bar-text">
       {homebarName}
     </p>
-    <i class={homebarIcon}>
-      <div class="home-bar-icon-hover"></div>
+    <i className={homebarIcon}>
+      <div className="home-bar-icon-hover"></div>
     </i>
   </div>
   )

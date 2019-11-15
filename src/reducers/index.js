@@ -5,13 +5,15 @@ import search from './search';
 import whoToFollow from './whoToFollow';
 import menu from './menu';
 import homeBar from './homeBar';
+import postForm from './postForm';
 
 const Reducer = combineReducers({
   trending, 
   search,
   whoToFollow,
   menu,
-  homeBar
+  homeBar,
+  postForm
 });
 
 export default Reducer;

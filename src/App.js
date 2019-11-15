@@ -7,6 +7,7 @@ import WhoToFollow from './components/WhoToFollow';
 import Footer from './components/Footer';
 import Menu from './components/Menu';
 import HomeBar from './components/HomeBar';
+import PostForm from './components/PostForm';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </div>
       <div className="content">
         <HomeBar />
+        <PostForm />
       </div>
       <div className="right-siderbar">
         <Search />
