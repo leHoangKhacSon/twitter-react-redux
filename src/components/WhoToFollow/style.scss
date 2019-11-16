@@ -77,8 +77,18 @@
         font-weight: 600;
       };
     };
+    .btn-active {
+      border: none;
+      background-color: $primary-color;
+      .follow-item-btn-text {
+        color: #fff;
+      }
+    }
     &-btn:hover {
       background-color: $bg-hover;
+    }
+    .btn-active:hover {
+      background-color: rgb(224, 36, 94);
     }
   }
   &-item:hover,

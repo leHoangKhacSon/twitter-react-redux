@@ -6,18 +6,27 @@ export const fetchDataFollowMore = () => {
   }
 };
 
-export const showInfoCard = item => {
+export const showCard = item => {
   return {
-    type: whoToFollowTypes.SHOW_INFO_CARD,
+    type: whoToFollowTypes.SHOW_CARD,
     payload: {
       item
     }
   }
 };
 
-export const hideInfoCard = item => {
+export const hideCard = item => {
   return {
-    type: whoToFollowTypes.HIDE_INFO_CARD,
+    type: whoToFollowTypes.HIDE_CARD,
+    payload: {
+      item
+    }
+  }
+};
+
+export const onFollow = item => {
+  return {
+    type: whoToFollowTypes.ON_FOLLOW,
     payload: {
       item
     }

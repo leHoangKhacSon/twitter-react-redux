@@ -8,63 +8,72 @@ const initialState = {
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     },
     {
       avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
       name: 'sonle123',
       username: '@sonle123',
       tick: false,
-      isShowCard: false
+      isShowCard: false,
+      isFollow: false
     }
   ],
   limit: 3
@@ -78,7 +87,7 @@ const whoToFollow = (state = initialState, action) => {
         limit: state.limit + 3
       }
     }
-    case whoToFollowTypes.SHOW_INFO_CARD: {
+    case whoToFollowTypes.SHOW_CARD: {
       const { item } = action.payload;
       const indexShow = state.items.indexOf(item);
       return {
@@ -93,7 +102,7 @@ const whoToFollow = (state = initialState, action) => {
         ]
       }
     }
-    case whoToFollowTypes.HIDE_INFO_CARD: {
+    case whoToFollowTypes.HIDE_CARD: {
       const { item } = action.payload;
       const indexHide = state.items.indexOf(item);
       return {
@@ -105,6 +114,20 @@ const whoToFollow = (state = initialState, action) => {
             isShowCard: false
           },
           ...state.items.slice(indexHide + 1)
+        ]
+      }
+    }
+    case whoToFollowTypes.ON_FOLLOW: {
+      const { item } = action.payload;
+      const index = state.items.indexOf(item);
+      return {
+        ...state,
+        items: [
+          ...state.items.slice(0, index), {
+            ...item,
+            isFollow: !item.isFollow
+          },
+          ...state.items.slice(index + 1)
         ]
       }
     }

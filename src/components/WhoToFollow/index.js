@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import * as whoToFollowActions from '../../actions/WhoToFollow';
 import InfoCard from '../../helpers/InfoCard';
 
-function WhoToFollow({ whoToFollow, fetchDataFollowMore, showInfoCard, hideInfoCard }) {
+function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onFollow }) {
   const { title, items, limit } = whoToFollow;
   return (
     <div className="follow">
@@ -19,8 +19,8 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore, showInfoCard, hideInfoC
         <div className="follow-item" key={uuid()}>
           <div 
           className="follow-item-avatar" 
-          onMouseEnter={() => showInfoCard(item)}
-          onMouseLeave={() => hideInfoCard(item)}>
+          onMouseEnter={() => showCard(item)}
+          onMouseLeave={() => hideCard(item)}>
             <div className="follow-item-avatar-hover">
             </div>
             {item.isShowCard && <InfoCard />}
@@ -35,11 +35,21 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore, showInfoCard, hideInfoC
               {item.username}
             </p>
           </a>
-          <div className="follow-item-btn">
-            <p className="follow-item-btn-text">
-              Follow
-            </p>
-          </div>
+          {item.isFollow === false && 
+            <div className="follow-item-btn" onClick={() => onFollow(item)}>
+              <p className="follow-item-btn-text">
+                Follow
+              </p>
+            </div>
+          }
+          {item.isFollow && 
+            <div className="follow-item-btn btn-active" onClick={() => onFollow(item)}>
+              <p className="follow-item-btn-text">
+                Following
+              </p>
+            </div>
+          }
+
         </div>
       ))}
 
@@ -57,17 +67,19 @@ WhoToFollow.propTypes = {
     title: PropTypes.string,
     items: PropTypes.arrayOf(
       PropTypes.shape({
+        id: PropTypes.number,
         avatarUrl: PropTypes.string,
         name: PropTypes.string,
         username: PropTypes.string,
-        tick: PropTypes.bool
+        tick: PropTypes.bool,
+        isFollow: PropTypes.bool
       })
     ),
     limit: PropTypes.number
   }),
   fetchDataFollowMore: PropTypes.func,
-  showInfoCard: PropTypes.func,
-  hideInfoCard: PropTypes.func
+  showCard: PropTypes.func,
+  hideCard: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -81,11 +93,14 @@ const mapDispatchToProps = (dispatch, props) => {
     fetchDataFollowMore: () => {
       dispatch(whoToFollowActions.fetchDataFollowMore())
     },
-    showInfoCard: item => {
-      dispatch(whoToFollowActions.showInfoCard(item))
+    showCard: item => {
+      dispatch(whoToFollowActions.showCard(item))
     },
-    hideInfoCard: item => {
-      dispatch(whoToFollowActions.hideInfoCard(item))
+    hideCard: item => {
+      dispatch(whoToFollowActions.hideCard(item))
+    },
+    onFollow: item => {
+      dispatch(whoToFollowActions.onFollow(item))
     }
   };
 };
