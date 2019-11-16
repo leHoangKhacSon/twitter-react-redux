@@ -23,9 +23,15 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onF
       {items.slice(0, limit).map(item => (
         <div className="follow-item" key={uuid()}>
           <div 
-          className="follow-item-avatar" 
-          onMouseEnter={() => showCard(item)}
-          onMouseLeave={() => hideCard(item)}>
+            className="follow-item-avatar" 
+            onMouseEnter={() => showCard(item)}
+            onMouseLeave={() => hideCard(item)}
+            style={
+              {
+                backgroundImage: `url(${item.avatarUrl})`
+              }
+            }
+          >
             <div className="follow-item-avatar-hover">
             </div>
             {item.isShowCard && <InfoCard />}

@@ -18,7 +18,12 @@ function TimeLine({ timeLine, onLikeClick, showInfoCard, hideInfoCard, fetchData
         <div className="timeline-item" key={index}>
           <div className="timeline-item-avatar">
             <div 
-            className="avatar-img" 
+            className="avatar-img"
+            style={
+              {
+                backgroundImage: `url(${item.avatarUrl})`
+              }
+            }
             onMouseEnter={() => showInfoCard(item)} 
             onMouseLeave={() => hideInfoCard(item)}>
               <div className="avatar-img-hover"></div>
@@ -54,9 +59,17 @@ function TimeLine({ timeLine, onLikeClick, showInfoCard, hideInfoCard, fetchData
               <div className="description">
                 {item.contentText}
               </div>
-              <div className="sub-description">
-
-              </div>
+              { item.contentImg && 
+                <div 
+                  className="sub-description"
+                  style={
+                    {
+                      backgroundImage: `url(${item.contentImg})`
+                    }
+                  }
+                >
+                </div>
+              }
             </div>
             <div className="timeline-item-content-footer">
             <div className="social">
