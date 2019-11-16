@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as timeLineActions from '../../actions/TimeLine';
 import InfoCard from '../../helpers/InfoCard';
+import Option from '../../helpers/Option';
 
 function TimeLine({ timeLine, onLike, onDislike, showInfoCard, hideInfoCard }) {
   return (
@@ -23,9 +24,7 @@ function TimeLine({ timeLine, onLike, onDislike, showInfoCard, hideInfoCard }) {
             <div className="timeline-item-content-header">
               <a 
               href="/" 
-              className="post-author" 
-              onMouseEnter={() => showInfoCard(item)}
-              onMouseLeave={() => hideInfoCard(item)}>
+              className="post-author">
                 <strong className="post-author-name">
                   {item.name}
                 </strong>
@@ -33,16 +32,17 @@ function TimeLine({ timeLine, onLike, onDislike, showInfoCard, hideInfoCard }) {
                 <span className="post-author-trend">
                   {item.username}
                 </span>
-                {/* <InfoCard /> */}
               </a>
               <a href="/" className="post-time">
                 {item.time}
               </a>
               <div id="option" className="dropdown-btn"> 
-                <i className="dropdown-btn-icon fas fa-caret-down">
-                  <div className="dropdown-btn-icon-overlay"></div>
-                </i>
-                <button></button>
+                <button>
+                  <i className="dropdown-btn-icon fas fa-caret-down">
+                    <div className="dropdown-btn-icon-overlay"></div>
+                  </i>
+                </button>
+                <Option />
               </div>
             </div>
             <div className="timeline-item-content-main">

@@ -90,7 +90,7 @@ $url: 'https://images.unsplash.com/photo-1572491929821-e7964a44096a?ixlib=rb-1.2
   max-width: 594px;
   font-size: 15px;
   font-family: $font;
-  // flex-grow: 1;
+  flex-grow: 1;
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   position: relative;
@@ -110,3 +110,4 @@ $url: 'https://images.unsplash.com/photo-1572491929821-e7964a44096a?ixlib=rb-1.2
 @import './components/WhoToFollow/style.scss';
 @import './components/Footer/style.scss';
 @import './helpers/InfoCard/style.scss';
+@import './helpers/Option/style.scss';

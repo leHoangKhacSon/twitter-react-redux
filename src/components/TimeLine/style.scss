@@ -15,8 +15,7 @@
         @include avatar(47px, 47px, $url);
         &-hover {
           @include box-overlay(47px, 47px);
-        };
-        // @import '../helpers/post-author-info.scss';
+        }
       };
       .avatar-img:hover .avatar-img-hover {
         background-color: $bg-hover;
@@ -40,14 +39,15 @@
             font-weight: bold;
             font-size: 15px;
             color: rgb(20, 23, 26);
+            margin-right: 5px;
           };
           &-name:hover {
             text-decoration: underline;
           };
           &-trend {
             color: rgb(101, 119, 134);
+            margin-left: 5px;
           };  
-          // @import '../../helpers/post-author-info.scss';
         };
         .post-author:hover .post-author-info {
           display: block;
@@ -77,11 +77,14 @@
             position: absolute;
             top: 30%;
             left: 50%;
+            background-color: #fff;
             transform: translate(-50%, -50%);
-            opacity: 0;
+            outline: none;
+            opacity: 1;
           } 
           button:focus +.option {
-            display: block !important;
+            max-height: 225px;
+            box-shadow: 1px 1px 2px 1px #ddd;
           }
           &-icon {
             font-size: 15px;
@@ -90,26 +93,6 @@
             transition: all .3s;
             &-overlay {
               @include box-overlay(27px, 27px);
-            };
-          };
-          .option {
-            list-style: none;
-            position: absolute;
-            top: -10px;
-            right: 0px; 
-            width: 170px;
-            box-shadow: 1px 1px  2px 1px #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-            display: none;
-            &-item {
-              padding: 15px;
-              display: flex;
-              align-items: center;
-              transition: all .3s;
-              &-icon {
-                margin-right: 10px;
-              };
             };
             &-item:hover {
               background-color: $bg-hover;
@@ -182,5 +165,6 @@
   };
   &-item:hover {
     background-color: rgb(245, 248, 250);
+    cursor: pointer;
   };
 };

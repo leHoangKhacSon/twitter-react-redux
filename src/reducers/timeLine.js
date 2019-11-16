@@ -137,7 +137,6 @@ const timeLine = (state = inititalState, action) => {
     case timeLineTypes.SHOW_INFO_CARD: {
       const { item } = action.payload;
       const indexShow = state.indexOf(item);
-      // const indexShow = fetchIndex(item, state);
       console.log(state);
       return [
         ...state.slice(0, indexShow),

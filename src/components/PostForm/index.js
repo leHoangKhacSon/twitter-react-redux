@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import autosize from 'autosize';
 
 import * as postFormActions from '../../actions/PostForm';
 
 function PostForm({ postForm, onEnterValue }) {
   const { isActive } = postForm;
+
+  useEffect(() => {
+    const ta = document.querySelector('textarea');
+    autosize(ta);
+  });
+
   return (
     <div className="post">
         <div className="post-avatar">
@@ -17,7 +24,7 @@ function PostForm({ postForm, onEnterValue }) {
           <div className="post-form-main">
             <textarea 
               rows='1' 
-              placeholder="What's going on?" 
+              placeholder="What's happening?" 
               onChange={(event) => onEnterValue(event.target.value)}
             >
             </textarea>
