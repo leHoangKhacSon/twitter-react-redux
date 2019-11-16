@@ -1,65 +1,35 @@
 import * as trendingTypes from '../constants/Trending'
 
 const initialState = {
-  title: 'Xu hướng của bạn',
-  items: [
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    },
-    {
-      trend: 'VietNam',
-      hashtag: 'VietName',
-      tweetCount: 1395
-    }
-  ],
+  title: 'Trends for you',
+  items: [],
   limit: 5
 };
 
 
 const trending = (state = initialState, action) => {
   switch(action.type) {
+    case trendingTypes.FETCH_DATA_TRENDING: {
+      return {
+        ...state
+      };
+    }
+    case trendingTypes.FETCH_DATA_TRENDING_SUCCESS: {
+      const { data } = action.payload;
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          ...data
+        ]
+      }
+    }
+    case trendingTypes.FETCH_DATA_TRENDING_FAIL: {
+      return {
+        ...state,
+        items: []
+      }
+    }
     case trendingTypes.FETCH_DATA_TRENDING_MORE: {
       return {
         ...state,

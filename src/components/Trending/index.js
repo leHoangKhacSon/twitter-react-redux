@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as trendingActions from '../../actions/Trending';
 
-function Trending({ trending, fetchDataTrendingMore }) {
+function Trending({ trending, fetchDataTrendingMore, fetchDataTrending }) {
   const { title, items, limit } = trending;
+
+  useEffect(() => {
+    fetchDataTrending();
+  }, [fetchDataTrending])
+
   return (
     <div className="trend">
       <div className="trend-header">
@@ -35,7 +40,7 @@ function Trending({ trending, fetchDataTrendingMore }) {
       <div className="trend-more" 
       onClick={fetchDataTrendingMore}
       >
-        <a href="/" className="trend-more-text">
+        <a className="trend-more-text">
           Show more
         </a>
       </div>
@@ -55,7 +60,8 @@ Trending.propTypes = {
     ).isRequired,
     limit: PropTypes.number.isRequired
   }).isRequired,
-  fetchDataTrendingMore: PropTypes.func.isRequired
+  fetchDataTrendingMore: PropTypes.func.isRequired,
+  fetchDataTrending: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -67,7 +73,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     fetchDataTrendingMore: () => {
-      dispatch(trendingActions.fetchDataTrendingMore());
+      dispatch(trendingActions.fetchDataTrendingMore())
+    },
+    fetchDataTrending: () => {
+      dispatch(trendingActions.fetchDataTrending())
     }
   }
 };

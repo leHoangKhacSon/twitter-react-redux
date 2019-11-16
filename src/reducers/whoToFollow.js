@@ -2,85 +2,32 @@ import * as whoToFollowTypes from '../constants/WhoToFollow';
 
 const initialState = {
   title: 'Who to follow',
-  items: [
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    },
-    {
-      avatarUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu5l578HoA96JAzFQoxdnnvqzfvt2msoJ9lI1BPqwwv2r9bQCXHg&s',
-      name: 'sonle123',
-      username: '@sonle123',
-      tick: false,
-      isShowCard: false,
-      isFollow: false
-    }
-  ],
+  items: [],
   limit: 3
 };
 
 const whoToFollow = (state = initialState, action) => {
   switch(action.type) {
+    case whoToFollowTypes.FETCH_DATA_FOLLOW: {
+      return {
+        ...state
+      };
+    }
+    case whoToFollowTypes.FETCH_DATA_FOLLOW_SUCCESS: {
+      const { data } = action.payload;
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          ...data
+        ]
+      };
+    };
+    case whoToFollowTypes.FETCH_DATA_FOLLOW_FAIL:
+      return {
+        ...state,
+        items: []
+      };
     case whoToFollowTypes.FETCH_DATA_FOLLOW_MORE: {
       return {
         ...state,

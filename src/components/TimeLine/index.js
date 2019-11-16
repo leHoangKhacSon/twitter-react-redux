@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 
 import * as timeLineActions from '../../actions/TimeLine';
 import InfoCard from '../../helpers/InfoCard';
 import Option from '../../helpers/Option';
 
-function TimeLine({ timeLine, onLike, onDislike, showInfoCard, hideInfoCard }) {
+function TimeLine({ timeLine, onLikeClick, showInfoCard, hideInfoCard, fetchDataTimeLine }) {
+  useEffect(() => {
+    fetchDataTimeLine()
+  }, [fetchDataTimeLine])
+ 
   return (
     <div className="timeline">
       { timeLine.map((item, index) => (
@@ -66,7 +71,9 @@ function TimeLine({ timeLine, onLike, onDislike, showInfoCard, hideInfoCard }) {
               </i>
               <span className="social-view">{item.reTweet}</span>
             </div>
-            <div className="social">
+            <div className={classNames('social', {
+              'social-active': item.isLike
+            })} onClick={() => onLikeClick(item)}>
               <i className="social-icon far fa-heart">
                 <div className="social-icon-hover"></div>
               </i>
@@ -102,10 +109,10 @@ TimeLine.propTypes = {
       idLike: PropTypes.bool
     })
   ),
-  onLike: PropTypes.func,
-  onDislike: PropTypes.func,
+  onLikeClick: PropTypes.func,
   showInfoCard: PropTypes.func,
-  hideInfoCard: PropTypes.func
+  hideInfoCard: PropTypes.func,
+  fetchDataTimeLine: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -116,17 +123,17 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
-    onLike: idPost => {
-      dispatch(timeLineActions.onLike(idPost))
+    fetchDataTimeLine: () => {
+      dispatch(timeLineActions.fetchDataTimeLine())
     },
-    onDisLike: idPost => {
-      dispatch(timeLineActions.onDislike(idPost))
+    onLikeClick: item => {
+      dispatch(timeLineActions.onLikeClick(item))
     },
-    showInfoCard: idPost => {
-      dispatch(timeLineActions.showInfoCard(idPost))
+    showInfoCard: item => {
+      dispatch(timeLineActions.showInfoCard(item))
     },
-    hideInfoCard: idPost => {
-      dispatch(timeLineActions.hideInfoCard(idPost))
+    hideInfoCard: item => {
+      dispatch(timeLineActions.hideInfoCard(item))
     }
   }
 }

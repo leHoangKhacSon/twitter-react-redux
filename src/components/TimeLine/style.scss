@@ -143,6 +143,9 @@
             margin-left: 5px;
           };
         };
+        .social-active {
+          color: rgb(224, 36, 94);
+        };
         .social:hover .social-icon-hover {
           background-color: $bg-hover;
           cursor: pointer;

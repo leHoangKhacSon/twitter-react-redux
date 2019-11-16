@@ -6,23 +6,29 @@ export const fetchDataTimeLine = () => {
   }
 };
 
-export const onLike = idPost => {
+export const fetchDataTimeLineSuccess = data => {
   return {
-    type: timeLineTypes.ON_LIKE,
+    type: timeLineTypes.FETCH_DATA_TIME_LINE_SUCCESS,
     payload: {
-      idPost
+      data
     }
   }
 };
 
-export const onDislike = idPost => {
+export const fetchDataTimeLineFail = () => {
   return {
-    type: timeLineTypes.ON_DISLIKE,
+    type: timeLineTypes.FETCH_DATA_TIME_LINE_FAIL
+  }
+};
+
+export const onLikeClick = item => {
+  return {
+    type: timeLineTypes.ON_LIKE_CLICK,
     payload: {
-      idPost
+      item
     }
   }
-}; 
+};
 
 export const showInfoCard = item => {
   return {

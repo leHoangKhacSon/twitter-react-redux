@@ -1,5 +1,26 @@
 import * as whoToFollowTypes from '../constants/WhoToFollow';
 
+export const fetchDataFollow = () => {
+  return {
+    type: whoToFollowTypes.FETCH_DATA_FOLLOW
+  }
+};
+
+export const fetchDataFollowSuccess = data => {
+  return {
+    type: whoToFollowTypes.FETCH_DATA_FOLLOW_SUCCESS,
+    payload: {
+      data
+    }
+  }
+};
+
+export const fetchDataFollowFail = () => {
+  return {
+    type: whoToFollowTypes.FETCH_DATA_FOLLOW_FAIL
+  }
+};
+
 export const fetchDataFollowMore = () => {
   return {
     type: whoToFollowTypes.FETCH_DATA_FOLLOW_MORE

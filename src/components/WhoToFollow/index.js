@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -6,8 +6,13 @@ import { connect } from 'react-redux';
 import * as whoToFollowActions from '../../actions/WhoToFollow';
 import InfoCard from '../../helpers/InfoCard';
 
-function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onFollow }) {
+function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onFollow, fetchDataFollow }) {
   const { title, items, limit } = whoToFollow;
+
+  useEffect(() => {
+    fetchDataFollow();
+  }, [fetchDataFollow])
+
   return (
     <div className="follow">
       <div className="follow-header">
@@ -54,7 +59,7 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onF
       ))}
 
       <div className="follow-more">
-        <a href="/" className="follow-more-text" onClick={fetchDataFollowMore}>
+        <a className="follow-more-text" onClick={fetchDataFollowMore}>
           Show more
         </a>
       </div>
@@ -79,7 +84,8 @@ WhoToFollow.propTypes = {
   }),
   fetchDataFollowMore: PropTypes.func,
   showCard: PropTypes.func,
-  hideCard: PropTypes.func
+  hideCard: PropTypes.func,
+  fetchDataFollow: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -90,6 +96,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
+    fetchDataFollow: () => {
+      dispatch(whoToFollowActions.fetchDataFollow())
+    },
     fetchDataFollowMore: () => {
       dispatch(whoToFollowActions.fetchDataFollowMore())
     },

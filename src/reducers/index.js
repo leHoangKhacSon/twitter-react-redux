@@ -8,7 +8,7 @@ import homeBar from './homeBar';
 import postForm from './postForm';
 import timeLine from './timeLine';
 
-const Reducer = combineReducers({
+const rootReducer = combineReducers({
   trending, 
   search,
   whoToFollow,
@@ -18,4 +18,4 @@ const Reducer = combineReducers({
   timeLine
 });
 
-export default Reducer;
+export default rootReducer;
