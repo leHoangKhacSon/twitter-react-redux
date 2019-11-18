@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import * as whoToFollowActions from '../../actions/WhoToFollow';
 import InfoCard from '../../helpers/InfoCard';
 
 function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onFollow, fetchDataFollow }) {
@@ -94,30 +92,4 @@ WhoToFollow.propTypes = {
   fetchDataFollow: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    whoToFollow: state.whoToFollow
-  };
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    fetchDataFollow: () => {
-      dispatch(whoToFollowActions.fetchDataFollow())
-    },
-    fetchDataFollowMore: () => {
-      dispatch(whoToFollowActions.fetchDataFollowMore())
-    },
-    showCard: item => {
-      dispatch(whoToFollowActions.showCard(item))
-    },
-    hideCard: item => {
-      dispatch(whoToFollowActions.hideCard(item))
-    },
-    onFollow: item => {
-      dispatch(whoToFollowActions.onFollow(item))
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(WhoToFollow);
+export default WhoToFollow;

@@ -1,30 +1,30 @@
 import React from 'react';
 
 import './App.scss';
-import Trending from './components/Trending';
-import Search from './components/Search';
-import WhoToFollow from './components/WhoToFollow';
+import WhoToFollowContainer from './containers/WhoToFollowContainer';
+import TrendingContainer from './containers/TrendingContainer';
+import TimeLineContainer from './containers/TimeLineContainer';
+import SearchContainer from './containers/SearchContainer';
+import PostFormContainer from './containers/PostFormContainer';
+import MenuContainer from './containers/MenuContainer';
+import HomeBarContainer from './containers/HomeBarContainer';
 import Footer from './components/Footer';
-import Menu from './components/Menu';
-import HomeBar from './components/HomeBar';
-import PostForm from './components/PostForm';
-import TimeLine from './components/TimeLine';
 
 function App() {
   return (
     <div className="App">
       <div className="left-siderbar">
-        <Menu />
+        <MenuContainer />
       </div>
       <div className="content">
-        <HomeBar />
-        <PostForm />
-        <TimeLine />
+        <HomeBarContainer />
+        <PostFormContainer />
+        <TimeLineContainer />
       </div>
       <div className="right-siderbar">
-        <Search />
-        <Trending />
-        <WhoToFollow />
+        <SearchContainer />
+        <TrendingContainer />
+        <WhoToFollowContainer />
         <Footer />
       </div>
     </div>

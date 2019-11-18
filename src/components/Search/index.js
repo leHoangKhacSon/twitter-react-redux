@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-import * as searchActions from '../../actions/Search';
 
 function Search({ isShow, onFocusForm, onLeaveForm }) {
   return (
@@ -35,21 +32,4 @@ Search.propTypes = {
   onLeaveForm: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    isShow: state.search
-  }
-};
-
-const mapDispatchToProps = (dispatch, prosp) => {
-  return {
-    onFocusForm: () => {
-      dispatch(searchActions.onFocusForm())
-    },
-    onLeaveForm: () => {
-      dispatch(searchActions.onLeaveForm())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default Search;

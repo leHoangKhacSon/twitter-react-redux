@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import autosize from 'autosize';
-
-import * as postFormActions from '../../actions/PostForm';
 
 function PostForm({ postForm, onEnterValue }) {
   const { isActive } = postForm;
@@ -67,18 +64,4 @@ PostForm.propTypes = {
   onEnterValue: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    postForm: state.postForm
-  }
-}
-
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    onEnterValue: value => {
-      dispatch(postFormActions.onEnterValue(value))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default PostForm;

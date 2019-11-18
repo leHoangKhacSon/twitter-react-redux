@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-import * as trendingActions from '../../actions/Trending';
 
 function Trending({ trending, fetchDataTrendingMore, fetchDataTrending }) {
   const { title, items, limit } = trending;
@@ -64,21 +61,4 @@ Trending.propTypes = {
   fetchDataTrending: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    trending: state.trending
-  }
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    fetchDataTrendingMore: () => {
-      dispatch(trendingActions.fetchDataTrendingMore())
-    },
-    fetchDataTrending: () => {
-      dispatch(trendingActions.fetchDataTrending())
-    }
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Trending); 
+export default Trending; 

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 function HomeBar({ homeBar }) {
   const { homebarName, homebarIcon } = homeBar;
@@ -23,10 +22,4 @@ HomeBar.propTypes = {
   })
 }
 
-const mapStateToProps = state => {
-  return {
-    homeBar: state.homeBar
-  }
-}
-
-export default connect(mapStateToProps)(HomeBar);
+export default HomeBar;

@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import * as timeLineActions from '../../actions/TimeLine';
 import InfoCard from '../../helpers/InfoCard';
 import Option from '../../helpers/Option';
 
@@ -128,27 +126,4 @@ TimeLine.propTypes = {
   fetchDataTimeLine: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    timeLine: state.timeLine
-  }
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    fetchDataTimeLine: () => {
-      dispatch(timeLineActions.fetchDataTimeLine())
-    },
-    onLikeClick: item => {
-      dispatch(timeLineActions.onLikeClick(item))
-    },
-    showInfoCard: item => {
-      dispatch(timeLineActions.showInfoCard(item))
-    },
-    hideInfoCard: item => {
-      dispatch(timeLineActions.hideInfoCard(item))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TimeLine);
+export default TimeLine;

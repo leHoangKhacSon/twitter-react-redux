@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 function Menu({ menu }) {
   const { menuLogo, menuItems, menuButton } = menu;
@@ -45,10 +44,4 @@ Menu.propTypes = {
   })
 }
 
-const mapStateToProps = state => {
-  return {
-    menu: state.menu
-  }
-}
-
-export default connect(mapStateToProps)(Menu);
+export default Menu;
