@@ -1,18 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import * as trendingActions from '../actions/Trending';
 import Trending from '../components/Trending';
-
-function TrendingContainer({ trending, fetchDataTrending, fetchDataTrendingMore }) {
-  return (
-    <Trending 
-      trending={trending}
-      fetchDataTrending={fetchDataTrending}
-      fetchDataTrendingMore={fetchDataTrendingMore}
-    />
-  )
-}
 
 const mapStateToProps = state => {
   return {
@@ -20,7 +9,7 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = dispatch => {
   return {
     fetchDataTrendingMore: () => {
       dispatch(trendingActions.fetchDataTrendingMore())
@@ -31,4 +20,4 @@ const mapDispatchToProps = (dispatch, props) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrendingContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(Trending);

@@ -1,17 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import * as postFormActions from '../actions/PostForm';
 import PostForm from '../components/PostForm';
-
-function PostFormContainer({ postForm, onEnterValue }) {
-  return (
-    <PostForm 
-      postForm={postForm}
-      onEnterValue={onEnterValue}
-    />
-  )
-}
 
 const mapStateToProps = state => {
   return {
@@ -19,7 +9,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = dispatch => {
   return {
     onEnterValue: value => {
       dispatch(postFormActions.onEnterValue(value))
@@ -27,4 +17,4 @@ const mapDispatchToProps = (dispatch, props) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm);

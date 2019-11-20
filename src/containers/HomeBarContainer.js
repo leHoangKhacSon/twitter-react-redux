@@ -1,13 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import HomeBar from '../components/HomeBar';
-
-function HomeBarContainer({ homeBar }) {
-  return (
-    <HomeBar homeBar={homeBar} />
-  )
-}
 
 const mapStateToProps = state => {
   return {
@@ -15,4 +8,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(HomeBarContainer);
+export default connect(mapStateToProps)(HomeBar);

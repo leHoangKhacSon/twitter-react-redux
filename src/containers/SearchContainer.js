@@ -1,18 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import * as searchActions from '../actions/Search';
 import Search from '../components/Search';
-
-function SearchContainer({ isShow, onFocusForm, onLeaveForm }) {
-  return (
-    <Search 
-    isShow={isShow}
-    onFocusForm={onFocusForm}
-    onLeaveForm={onLeaveForm}
-    />
-  )
-}
 
 const mapStateToProps = state => {
   return {
@@ -20,7 +9,7 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = (dispatch, prosp) => {
+const mapDispatchToProps = dispatch => {
   return {
     onFocusForm: () => {
       dispatch(searchActions.onFocusForm())
@@ -31,6 +20,6 @@ const mapDispatchToProps = (dispatch, prosp) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
 
 

@@ -1,20 +1,8 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import * as timeLineActions from '../actions/TimeLine';
 import TimeLine from '../components/TimeLine';
 
-function TimeLineContainer({ timeLine, fetchDataTimeLine, onLikeClick, showInfoCard, hideInfoCard }) {
-  return (
-    <TimeLine 
-      timeLine={timeLine}
-      fetchDataTimeLine={fetchDataTimeLine}
-      onLikeClick={onLikeClick}
-      showInfoCard={showInfoCard}
-      hideInfoCard={hideInfoCard}
-    />
-  )
-}
 
 const mapStateToProps = state => {
   return {
@@ -22,7 +10,7 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = dispatch => {
   return {
     fetchDataTimeLine: () => {
       dispatch(timeLineActions.fetchDataTimeLine())
@@ -39,4 +27,4 @@ const mapDispatchToProps = (dispatch, props) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimeLineContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(TimeLine);
