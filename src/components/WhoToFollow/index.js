@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import uuid from 'uuid/v1';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import InfoCard from '../../helpers/InfoCard';
 
-function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onFollow, fetchDataFollow }) {
+function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onFollow, fetchDataFollow, onHoverUnfollow }) {
   const { title, items, limit } = whoToFollow;
 
   useEffect(() => {
@@ -52,8 +53,17 @@ function WhoToFollow({ whoToFollow, fetchDataFollowMore, showCard, hideCard, onF
             </div>
           }
           {item.isFollow && 
-            <div className="follow-item-btn btn-active" onClick={() => onFollow(item)}>
-              <p className="follow-item-btn-text">
+            <div 
+              className={classNames('follow-item-btn', 'btn-active', {
+                'btn-unfollow': item.isUnfollow,
+              })} 
+              onClick={() => onFollow(item)}
+              onMouseEnter={() => onHoverUnfollow(item)}
+              onMouseLeave={() => onHoverUnfollow(item)}
+            >
+              <p className={classNames("follow-item-btn-text", {
+                'follow-item-btn-text-hidden': item.isUnfollow  
+              })}>
                 Following
               </p>
             </div>

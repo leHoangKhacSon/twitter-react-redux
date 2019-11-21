@@ -53,3 +53,12 @@ export const onFollow = item => {
     }
   }
 };
+
+export const onHoverUnfollow = item => {
+  return {
+    type: whoToFollowTypes.ON_HOVER_UNFOLLOW,
+    payload:{
+      item
+    }
+  }
+}

@@ -78,6 +78,20 @@ const whoToFollow = (state = initialState, action) => {
         ]
       }
     }
+    case whoToFollowTypes.ON_HOVER_UNFOLLOW: {
+      const { item } = action.payload;
+      const index = state.items.indexOf(item);
+      return {
+        ...state,
+        items: [
+          ...state.items.slice(0, index), {
+            ...item,
+            isUnfollow: !item.isUnfollow
+          },
+          ...state.items.slice(index + 1)
+        ]
+      }
+    }
     default: 
       return state;
   }

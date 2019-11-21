@@ -5,3 +5,4 @@ export const FETCH_DATA_FOLLOW_MORE = 'FETCH_DATA_FOLLOW_MORE';
 export const SHOW_CARD = 'SHOW_CARD';
 export const HIDE_CARD = 'HIDE_CARD';
 export const ON_FOLLOW = 'ON_FOLLOW';
+export const ON_HOVER_UNFOLLOW = 'ON_HOVER_UNFOLLOW';

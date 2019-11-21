@@ -81,6 +81,16 @@
       .follow-item-btn-text {
         color: #fff;
       }
+      .follow-item-btn-text-hidden {
+        opacity: 0;
+      }
+    }
+    .btn-active.btn-unfollow::before {
+      content: 'Unfollow';
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      position: absolute;
     }
     &-btn:hover {
       background-color: $bg-hover;

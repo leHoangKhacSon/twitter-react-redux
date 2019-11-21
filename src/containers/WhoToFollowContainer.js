@@ -25,6 +25,9 @@ const mapDispatchToProps = dispatch => {
     },
     onFollow: item => {
       dispatch(whoToFollowActions.onFollow(item))
+    },
+    onHoverUnfollow: item => {
+      dispatch(whoToFollowActions.onHoverUnfollow(item))
     }
   };
 };
