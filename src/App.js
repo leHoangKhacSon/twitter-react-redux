@@ -1,33 +1,36 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 import './App.scss';
-import WhoToFollowContainer from './containers/WhoToFollowContainer';
-import TrendingContainer from './containers/TrendingContainer';
-import TimeLineContainer from './containers/TimeLineContainer';
-import SearchContainer from './containers/SearchContainer';
-import PostFormContainer from './containers/PostFormContainer';
-import MenuContainer from './containers/MenuContainer';
-import HomeBarContainer from './containers/HomeBarContainer';
-import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import LogoutPage from './pages/LogoutPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
-    <div className="App">
-      <div className="left-siderbar">
-        <MenuContainer />
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignupPage />
+          </Route>
+          <Route path="/logout">
+            <LogoutPage />
+          </Route>
+        </Switch>
       </div>
-      <div className="content">
-        <HomeBarContainer />
-        <PostFormContainer />
-        <TimeLineContainer />
-      </div>
-      <div className="right-siderbar">
-        <SearchContainer />
-        <TrendingContainer />
-        <WhoToFollowContainer />
-        <Footer />
-      </div>
-    </div>
+    </Router>
   );
 }
 
