@@ -7,6 +7,7 @@ import menu from './menu';
 import homeBar from './homeBar';
 import postForm from './postForm';
 import timeLine from './timeLine';
+import communication from './communication';
 
 const rootReducer = combineReducers({
   trending, 
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   menu,
   homeBar,
   postForm,
-  timeLine
+  timeLine,
+  communication
 });
 
 export default rootReducer;

@@ -53,6 +53,10 @@
       display: flex;
       justify-content: space-between;
       margin: 16px auto;
+      &-icon {
+        color: #1da1f2;
+        font-size: 40px;
+      }
       .login-button {
         font-size: 14px;
         font-weight: bold;
@@ -75,6 +79,7 @@
       font-size: 27px;
       line-height: 32px;
       text-rendering: optimizeLegibility;
+      font-weight: bold;
     }
     .signup-form {
       width: 350px;

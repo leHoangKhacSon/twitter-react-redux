@@ -1,31 +1,19 @@
 import React from 'react'
 
 import './logout.scss';
+import CommunicationContainer from '../containers/CommunicationContainer';
 
 function LogoutPage() {
   return (
     <div className="login-page">
       <div className="login-page-content">
         <div className="left">
-          <div className="communication-content">
-            <div className="communication-item">
-              <i class="fas fa-search"></i>
-              <span>Keep track of your interests</span>
-            </div>
-            <div className="communication-item">
-              <i class="fas fa-search"></i>
-              <span>Listen to the content people are discussing</span>
-            </div>
-            <div className="communication-item">
-              <i class="fas fa-search"></i>
-              <span>Join the conversation</span>
-            </div>
-          </div>
+          <CommunicationContainer />
         </div>
         <div className="right">
           <div className="signup-block">
             <div className="signup-header">
-              <i class="fas fa-search"></i>
+              <i className="fab fa-twitter fa-2x signup-header-icon"></i>
               <a className="login-button">Login</a>
             </div>
             <div className="signup-title">
