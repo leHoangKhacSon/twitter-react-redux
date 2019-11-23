@@ -2,6 +2,7 @@ import React from 'react'
 
 import './logout.scss';
 import CommunicationContainer from '../containers/CommunicationContainer';
+import StreamList from '../components/StreamList';
 
 function LogoutPage() {
   return (
@@ -29,95 +30,8 @@ function LogoutPage() {
           </div>
         </div>
       </div>
-
       <div className="stream-footer">
-        <ul className="stream-footer-list">
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <a href="#">
-              Introduce
-            </a>
-          </li>
-          <li className="stream-footer-item">
-            <span>
-              2019 Twitter
-            </span>
-          </li>
-        </ul>
+        <StreamList />
       </div>
     </div>
   )

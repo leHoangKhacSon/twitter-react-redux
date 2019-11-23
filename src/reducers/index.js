@@ -8,6 +8,7 @@ import homeBar from './homeBar';
 import postForm from './postForm';
 import timeLine from './timeLine';
 import communication from './communication';
+import streamList from './streamList';
 
 const rootReducer = combineReducers({
   trending, 
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   homeBar,
   postForm,
   timeLine,
-  communication
+  communication,
+  streamList
 });
 
 export default rootReducer;
