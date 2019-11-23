@@ -1,6 +1,6 @@
-body {
-  background-color: #ddd;
-}
+// body {
+//   background-color: #ddd;
+// }
 
 .signup {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
@@ -13,7 +13,7 @@ body {
   overflow: hidden;
   margin: auto;
   margin-top: 30px;
-  background-color: #fff;
+  background-color: rgba(29, 160, 242, 0.116);;
   &-header {
     &-wrapper {
       display: flex;
