@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function StreamList({ streamList }) {
-  const leng = streamList.length();
+  const leng = streamList.length;
   return (
     <ul className="stream-footer-list">
       {streamList.slice(0, leng - 1).map((item, index) => (

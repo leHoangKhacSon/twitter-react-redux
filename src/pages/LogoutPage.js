@@ -2,7 +2,7 @@ import React from 'react'
 
 import './logout.scss';
 import CommunicationContainer from '../containers/CommunicationContainer';
-import StreamList from '../components/StreamList';
+import StreamListContainer from '../containers/StreamListContainer';
 
 function LogoutPage() {
   return (
@@ -31,7 +31,7 @@ function LogoutPage() {
         </div>
       </div>
       <div className="stream-footer">
-        <StreamList />
+        <StreamListContainer />
       </div>
     </div>
   )
